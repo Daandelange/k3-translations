@@ -38,8 +38,9 @@ site/plugins/translations/
 If you are using Composer, you can install the plugin with
 
 ```
-composer require daandelange/k3-translations
+composer require daandelange/k3-translations:~0.x.x-beta
 ```
+_Note: While `k3-translations` is still alpha, there is no stable channel for composer, so you need to specify the unstable version._
 
 ### Git submodule
 
@@ -117,5 +118,5 @@ This plugin is free but if you use it in a commercial project please consider to
 
 ## Credits
 
-This is a Kirby 3 port of @Flokosiol's [kirby-translations](https://github.com/flokosiol/kirby-translations) _(which is for Kirby 2)_; thanks to him for initiating this plugin ! :)
+This is a Kirby 3 port of @Flokosiol's [kirby-translations](https://github.com/flokosiol/kirby-translations) _(which is for Kirby 2)_; thanks to him for initiating this plugin ! :)  
 Special thanks to all [contributors](https://github.com/daandelange/k3-translations/graph/contributors) as well as the original [kirby2-translations contributors](https://github.com/flokosiol/kirby-translations/graphs/contributors) !
