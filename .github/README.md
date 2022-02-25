@@ -2,10 +2,10 @@
 
 Beta : This is a work in progress port of translations to Kirby 3. The "saved" state of a field is not yet enabled.
 
-![Version](https://img.shields.io/badge/Version-1.0.1-blue.svg) ![License](https://img.shields.io/badge/License-MIT-green.svg) ![Kirby](https://img.shields.io/badge/Kirby-3.x-f0c674.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg) ![Kirby](https://img.shields.io/badge/Kirby-3.6+-f0c674.svg)
 
 This plugin enhances the translation handling of content pages for [Kirby 3](http://getkirby.com).
-By default, replaces the original language switch by an enhanced one; but you can also use it as a section. (and in the future as a field to indicate the translation status).
+By default, it replaces the original language switch by an enhanced one; but you can also use it as a section. (and in the future as a field to indicate the translation status).
 
 - The language menu explicitly shows if the translation exists :
   - **RED**: The translated `.txt`-file doesn't exist, the content is not translated in this language.
@@ -74,14 +74,22 @@ sections:
 ### Options
 The following options are available for any translations section or field :
 
-- Disallow deleting content translations:
-  ```yaml deletable: false``` (default: `true`)
-- Disallow reverting a translation to the default language:
-```yaml revertable: false``` (default: `true`)
-- Use a more compact layout:
-```yaml compactmode: true``` (default: `false`)
-- Set a custom label:
-```yaml label: Labelized!``` (default: `''`)
+- Disallow deleting content translations:  
+  ```yaml
+  deletable: false # default = true
+  ```
+- Disallow reverting a translation to the default language:  
+  ```yaml
+  revertable: false # default = true
+  ```
+- Use a more compact layout:  
+  ```yaml
+  compactmode: true # default = false
+  ```
+- Set a custom label:  
+  ```yaml
+  label: Labelized! # default = [empty]
+  ```
 
 
 ## Development
