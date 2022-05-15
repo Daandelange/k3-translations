@@ -115,6 +115,8 @@ If you're using a modified Kirby folder structure, you probably have to fix the 
 
 This plugin is free but if you use it in a commercial project please consider to contribute an improvement, or hire someone to do so.
 
+## Alternatives / Similar
+- If you need to sync specific fields between languages, there's the [kirby3-language-sync](https://github.com/sietseveenman/kirby3-language-sync) plugin.
 
 ## Credits
 
