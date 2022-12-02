@@ -169,6 +169,19 @@ App::plugin('daandelange/translations', [
                         return false;
                     }
                 ],
+                [ // Virtual section site model (homepage), see : /config/api/routes/pages.php
+                    'pattern' => 'site/translations-info',
+                    'method'  => 'GET',
+                    'action'  => function () use ($kirby) {
+                        if ($page = $this->site()) {
+                            return [
+                                'options' => $kirby->option('daandelange.translations'),
+                                'translations' => array_values(Th::getContentTranslationStatuses($page)),
+                            ];
+                        }
+                        return false;
+                    }
+                ],
                 [ // Virtual section for file models, see : /config/api/routes/files.php
                     'pattern' => '(account|pages/[^/]+|site|users/[^/]+)'.'/files/(:any)/translations-info',
                     'method'  => 'GET',
