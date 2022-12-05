@@ -17,7 +17,7 @@ panel.plugin('daandelange/translations', {
   sections: {
     translations: TranslationsSection,
   },
-  fields: [
-    TranslationsField
-  ],
+  fields: {
+    translations: TranslationsField
+  },
 });
