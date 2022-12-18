@@ -230,7 +230,7 @@ App::plugin('daandelange/translations', [
             'daandelange.translations.revert.success'       => 'Ce langage {{code}} a bien été réinitialisé.',
             'daandelange.translations.page.notranslation'   => 'Cette page n‘est pas traduite en {{code}} !',
             'daandelange.translations.page.notfound'        => 'La page {{page}} n‘existe pas !',
-            'daandelange.translations.loading'              => I18n::translate('loading', 'Loading', 'fr').'...',
+            'daandelange.translations.loading'              => I18n::translate('loading', 'Chargement', 'fr').'...',
             'daandelange.translations.default'              => 'Par défaut',
             'daandelange.translations.current'              => 'Actuel',
         ]
