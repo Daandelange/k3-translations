@@ -1,13 +1,13 @@
 # Kirby Translations
 
-Beta : This is a work in progress port of translations to Kirby 3. The "saved" state of a field is not yet enabled.
+Beta: This is a work in progress port of translations to Kirby 3. The "saved" state of a field is not yet enabled.
 
 ![License](https://img.shields.io/badge/License-MIT-green.svg) ![Kirby](https://img.shields.io/badge/Kirby-3.6+-f0c674.svg)
 
 This plugin enhances the translation handling of content pages for [Kirby 3](http://getkirby.com).
-By default, it replaces the original language switch by an enhanced one; but you can also use it as a section. (and in the future as a field to indicate the translation status).
+By default, it replaces the original language switch by an enhanced one; but you can also use it as a section (and in the future as a field to indicate the translation status).
 
-- The language menu explicitly shows if the translation exists :
+- The language menu explicitly shows if the translation exists:
   - **RED**: The translated `.txt`-file doesn't exist, the content is not translated in this language.
   - **GREEN**: The translated `.txt`-file exists, the content is translated in this language.
 - All languages are always visible, for faster switching between translations.
@@ -15,9 +15,10 @@ By default, it replaces the original language switch by an enhanced one; but you
   - Delete a translation (without deleting the whole page).
   - Resynchronise translations with the default language file (revert).
 
-![Kirby 3 Translations plugin screenshot](translations.gif)
+![Kirby 3 Translations plugin screenshot](https://user-images.githubusercontent.com/7975568/156542901-0b3713af-25a1-4d5b-9df4-2cd5196b2516.gif)
 
 ## Requirements
+
 This plugin works with Fiber, so you probably need Kirby 3.6.
 
 Although, there are is a chance that it works on versions below. _(if so, please report back!)_
@@ -27,10 +28,10 @@ Although, there are is a chance that it works on versions below. _(if so, please
 
 ### Download
 
-Download and extract this repository, rename the folder to `translations` and drop it into the plugins folder of your Kirby installation. You should end up with a folder structure like this:
+Download this repository, extract it and drop it into the plugins folder of your Kirby installation.
 
 ```
-site/plugins/translations/
+site/plugins/k3-translations
 ```
 
 ### Composer
@@ -52,7 +53,9 @@ git submodule add https://github.com/daandelange/k3-translations.git site/plugin
 ## Setup
 
 ### Replacing Kirby's native language menu
+
 Within your website project, you can customise the language switching menu in the header by setting the following options:
+
 ```php
 // Site /site/config/config.php
 return [
@@ -64,6 +67,7 @@ return [
 ```
 
 ### Translations Section
+
 Add the following `section` to your blueprint(s). (optional)
 
 ```yaml
@@ -73,7 +77,8 @@ sections:
 ```
 
 ### Options
-The following options are available for any translations section or field :
+
+The following options are available for any translations section or field:
 
 - Disallow deleting content translations:  
   ```yaml
