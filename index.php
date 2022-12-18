@@ -220,9 +220,19 @@ App::plugin('daandelange/translations', [
             'daandelange.translations.loading'        => I18n::translate('loading', 'Loading', 'de').'...',
         ],
         'fr' => [
-            'daandelange.translations.delete.confirm' => 'Voulez-vous vraiment supprimer l\'intégrité du contenu de cette traduction ({code}) ?',
-            'daandelange.translations.revert.confirm' => 'Voulez-vous vraiment rétablir cette traduction en utilisant le contenu la langue par défaut ?',
-            'daandelange.translations.loading'        => I18n::translate('loading', 'Loading', 'fr').'...',
+            'daandelange.translations.delete.confirm'       => 'Voulez-vous vraiment supprimer l‘intégralité du contenu de cette traduction ({code}) ?',
+            'daandelange.translations.delete.nodefault'     => 'Le contenu de la langue par défaut ne peut être supprimé.',
+            'daandelange.translations.delete.error'         => 'La langue {{code}} n‘a pu être supprimée.',
+            'daandelange.translations.delete.success'       => 'La langue {{code}} a bien été supprimée.',
+            'daandelange.translations.revert.confirm'       => 'Voulez-vous vraiment réinitialiser cette traduction en utilisant le contenu la langue par défaut ?',
+            'daandelange.translations.revert.nodefault'     => 'Le contenu de la langue par défaut ne peut être réinitialisé.',
+            'daandelange.translations.revert.error'         => 'Le langage {{code}} n‘a pu être réinitialisé.',
+            'daandelange.translations.revert.success'       => 'Ce langage {{code}} a bien été réinitialisé.',
+            'daandelange.translations.page.notranslation'   => 'Cette page n‘est pas traduite en {{code}} !',
+            'daandelange.translations.page.notfound'        => 'La page {{page}} n‘existe pas !',
+            'daandelange.translations.loading'              => I18n::translate('loading', 'Loading', 'fr').'...',
+            'daandelange.translations.default'              => 'Par défaut',
+            'daandelange.translations.current'              => 'Actuel',
         ]
     ],
 ]);
