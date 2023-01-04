@@ -4,7 +4,7 @@ namespace daandelange\Translations;
 
 @include_once __DIR__ . '/vendor/autoload.php';
 
-use Kirby\Cms\App;
+use \Kirby\Cms\App;
 use I18n;
 use daandelange\Translations\TranslationsHelper as Th;
 use \Kirby\Toolkit\F;
