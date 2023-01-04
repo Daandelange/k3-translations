@@ -102,17 +102,18 @@ export default {
       if(!this.language.isCurrent)
         items.push( {
           icon: 'edit',
-          text: 'Switch to '+ this.language.name,
+          text: 'Switch to ' + this.language.name,
           click: ()=>this.languageClick(this.language),
         });
-      if( this.$permissions.pages?.preview && this.$view.props?.model?.previewUrl )
+      if( this.$permissions.pages?.preview && this.language.previewUrl )
         items.push( {
           icon: 'preview',
-          text: 'Visit this page in '+this.language.name,
-          link: this.$view.props?.model?.previewUrl,
+          text: 'Visit this page in ' + this.language.name,
+          link: this.language.previewUrl,
           target: '_blank',
         });
-      //if(true)
+      // Only show if user has permissions to edit languages
+      if( this.$permissions.languages.create )
         items.push( {
           icon: 'cog',
           text: 'Edit language in panel',

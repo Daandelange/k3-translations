@@ -7,6 +7,7 @@ export default {
       isLoading: false,
       replaceKirbyLangs: true,
       translationStatuses: [], // Array of translation statuses
+      translationUrls: {}, // Object of translation urls
       deletable: false,
       revertable: false,
       isInHeader: false,
@@ -64,6 +65,9 @@ export default {
       if(response.id){
         this.contentID = response.id;
       }
+      if(response.previewUrls ){
+        this.translationUrls = response.previewUrls;
+      }
     },
     // Load fallback, hopefully replaced by component
 //     load() {
@@ -79,6 +83,7 @@ export default {
         deletable:            this.deletable,
         revertable:           this.revertable,
         label:                this.label,
+        translationUrls:      this.translationUrls,
       };
     },
   }

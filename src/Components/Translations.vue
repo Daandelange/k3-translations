@@ -137,6 +137,10 @@ export default {
       type: Array,
       default: function(){return[];},
     },
+    translationUrls: { // Holds current translation statuses
+      type: Object,
+      default: function(){return{};},
+    },
   },
   computed: {
     // Languages fetching
@@ -212,6 +216,7 @@ export default {
           langs[i].isCurrent = (this.language.code === langs[i].code);
           langs[i].isDeleteable = this.canDelete && !langs[i].default && langs[i].isTranslated;
           langs[i].isRevertable = this.canRevert && !langs[i].default;
+          langs[i].previewUrl = this.translationUrls[langs[i].code] ?? this.$view.props?.model?.previewUrl;// Note: 2nd doesn't work with multiple domains per translation
 
           // return early ?
           if(returnSingle) return langs[i];

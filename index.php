@@ -45,7 +45,10 @@ App::plugin('daandelange/translations', [
                 'options' => function(){
                     return $this->kirby()->option('daandelange.translations');
                 },
-            ]
+                'previewUrls' => function(){
+                    return Th::getContentTranslationUrls($this->kirby()->site());
+                },
+            ],
         ]
     ],
     'api' => [
@@ -152,7 +155,8 @@ App::plugin('daandelange/translations', [
                     'action'  => function () use ($kirby) {
                         return [
                             'options' => $kirby->option('daandelange.translations'),
-                            'translations' => null, // How to get the page object here? Not possible ?
+                            'translations' => null,//array_values(Th::getContentTranslationStatuses($this->kirby()->page())), // How to get the page object here? Not possible ?
+                            'previewUrls' => null,//Th::getContentTranslationUrls($this->kirby()->page()),
                         ];
                     }
                 ],
@@ -164,12 +168,13 @@ App::plugin('daandelange/translations', [
                             return [
                                 'options' => $kirby->option('daandelange.translations'),
                                 'translations' => array_values(Th::getContentTranslationStatuses($page)),
+                                'previewUrls' => Th::getContentTranslationUrls($page),
                             ];
                         }
                         return false;
                     }
                 ],
-                [ // Virtual section site model (homepage), see : /config/api/routes/pages.php
+                [ // Virtual section site model (homepage), see : /config/api/routes/site.php
                     'pattern' => 'site/translations-info',
                     'method'  => 'GET',
                     'action'  => function () use ($kirby) {
@@ -177,6 +182,24 @@ App::plugin('daandelange/translations', [
                             return [
                                 'options' => $kirby->option('daandelange.translations'),
                                 'translations' => array_values(Th::getContentTranslationStatuses($page)),
+                                'previewUrls' => Th::getContentTranslationUrls($page),
+                            ];
+                        }
+                        return false;
+                    }
+                ],
+                [ // Virtual section for users, see : /config/api/routes/users.php
+                    'pattern' => [
+                        '(account)/translations-info',
+                        'users/(:any)/translations-info',
+                    ],
+                    'method'  => 'GET',
+                    'action'  => function (string $id) use ($kirby) {
+                        if ($user = $this->user($id)) {
+                            return [
+                                'options' => $kirby->option('daandelange.translations'),
+                                //'translations' => [],
+                                //'previewUrls' => new Object(),
                             ];
                         }
                         return false;
@@ -185,11 +208,12 @@ App::plugin('daandelange/translations', [
                 [ // Virtual section for file models, see : /config/api/routes/files.php
                     'pattern' => '(account|pages/[^/]+|site|users/[^/]+)'.'/files/(:any)/translations-info',
                     'method'  => 'GET',
-                    'action'  => function (string $path, string $filename, string $sectionName) use ($kirby) {
+                    'action'  => function (string $path, string $filename) use ($kirby) {
                         if ($model = $this->file($path, $filename)->model()) {
                             return [
                                 'options' => $kirby->option('daandelange.translations'),
                                 'translations' => array_values(Th::getContentTranslationStatuses($model)),
+                                'previewUrls' => Th::getContentTranslationUrls($model),
                             ];
                         }
                         return false;

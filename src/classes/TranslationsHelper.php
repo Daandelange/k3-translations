@@ -32,4 +32,13 @@ class TranslationsHelper {
         }
         return $translatedContent;
     }
+
+    public static function getContentTranslationUrls(ModelWithContent $model) : array {
+        $previewUrls = [];
+        if( $model->exists() ) foreach( kirby()->languages() as $lang){
+            $previewUrls[$lang->code()] = $model->url($lang->code()); // Note: not all models have the url() method !!
+            // $previewUrls[$lang->code()] = $model->translation($lang->code())->url();
+        }
+        return $previewUrls;
+    }
 }
