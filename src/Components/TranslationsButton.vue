@@ -91,6 +91,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    compactMode: {
+      type: Boolean,
+      default: false,
+    }
   },
   computed: {
     hasMenu() {
@@ -144,7 +148,7 @@ export default {
         'k-translations-active'                       : this.language.isCurrent??false,   // mark active
         'k-translations-button'                       : true,                             // global style element
         ['k-translations-button-'+this.language.code] : (this.language.code?.length > 0), // custom style element
-        'k-translations-button-compact'               : this.allowMenu,                   // Styles for compactmode
+        'k-translations-button-compact'               : this.allowMenu||this.compactMode,                   // Styles for compactmode
         ...extra
       };
     },

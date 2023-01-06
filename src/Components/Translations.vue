@@ -31,6 +31,7 @@
         :key="'btn-'+lang.code"
         :language="lang"
         :allowMenu="allowMenus||isInHeader"
+        :compactMode="compactModeEnabled"
         @changeLanguage="change(lang)"
         @deleteLanguage="deleteTranslationOpen(lang)"
         @revertLanguage="revertTranslationOpen(lang)"
@@ -130,6 +131,10 @@ export default {
       default: false,
     },
     revertable: { // Disables reverting
+      type: Boolean,
+      default: false,
+    },
+    compactMode: { // A slightly compacter layout
       type: Boolean,
       default: false,
     },

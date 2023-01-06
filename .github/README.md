@@ -1,6 +1,6 @@
 # Kirby Translations
 
-Beta: This plugin started as a port of k2-translations to Kirby 3. Please note that the much loved "saved" state of a field is not yet implemented. For now, the plugin proveds revert and delete functions for translations, and replaces the native Kirby languages menu by a more advanced one, indicating the translation status of each language.
+Beta: This plugin started as a port of k2-translations to Kirby 3. Please note that the much loved "saved" state of a field is not yet implemented. For now, the plugin provides revert and delete functions for translations, and replaces the native Kirby languages menu by a more advanced one, indicating the translation status of each language.
 
 ![License](https://img.shields.io/badge/License-MIT-green.svg) ![Kirby](https://img.shields.io/badge/Kirby-3.6+-f0c674.svg)
 
@@ -12,7 +12,7 @@ By default, it replaces the original language switch by an enhanced one; but you
   - **GREEN**: The translated `.txt`-file exists, the content is translated in this language.
 - All languages are always visible, for faster switching between translations.
 - For all non-default languages you can:
-  - Delete a translation (without deleting the whole page).
+  - Delete a translation content file (without deleting the whole page).
   - Resynchronise translations with the default language file (revert).
 
 ![Kirby 3 Translations plugin screenshot](https://user-images.githubusercontent.com/7975568/156542901-0b3713af-25a1-4d5b-9df4-2cd5196b2516.gif)
@@ -77,7 +77,7 @@ sections:
     type: translations
 ```
 
-### Translations Field
+<!-- ### Translations Field
 
 Add the following `field` to your blueprint(s). (optional)
 
@@ -85,7 +85,7 @@ Add the following `field` to your blueprint(s). (optional)
 fields:
   translations:
     type: translations
-```
+``` -->
 
 ### Options
 

@@ -107,6 +107,7 @@ export default {
         label:                this.label,
         translationUrls:      this.translationUrls,
         showEditLanguage:     this.showEditLanguage,
+        compactMode:          this.compactMode,
       };
     },
   }
