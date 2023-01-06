@@ -23,10 +23,12 @@ App::plugin('daandelange/translations', [
     'sections' => [
         'translations' => [
             'props' => [
-                'deletable' => function (bool $deletable = true) {
+                'deletable' => function (?bool $deletable = null) {
+                    if($deletable==null) return $this->kirby()->option('daandelange.translations.header.deletable'); // If blueprint not set, use global setting
                     return $deletable;
                 },
-                'revertable' => function (bool $revertable = true) {
+                'revertable' => function (?bool $revertable = null) {
+                    if($revertable==null) return $this->kirby()->option('daandelange.translations.header.revertable'); // If blueprint not set, use global setting
                     return $revertable;
                 },
                 'compactmode' => function (bool $compactmode = false) {

@@ -8,6 +8,7 @@
     >
       <template v-slot:extrabuttons="translationsData">
           <k-button
+            v-if="revertable && !translationsData.actualLanguage.default"
             class="k-translations-button"
             @click.stop="$refs.translations.revertTranslationOpen(translationsData.actualLanguage)"
             :text="'Revert '+ translationsData.actualLanguage.name"
@@ -15,6 +16,7 @@
             theme="warning"
           />
           <k-button
+            v-if="deletable && !translationsData.actualLanguage.default"
             class="k-translations-button"
             @click.stop="$refs.translations.deleteTranslationOpen(translationsData.actualLanguage)"
             :text="'Delete '+ translationsData.actualLanguage.name"
