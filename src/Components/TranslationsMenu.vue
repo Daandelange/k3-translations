@@ -20,12 +20,13 @@ export default {
   data: function(){
 
     return {
-      // Override defaults
+      // Override native defaults
       replaceKirbyLangs: true,
       isInHeader: true,
       showLoader: true,
       deletable: true,
       revertable: true,
+      showEditLanguage: true,
     };
   },
   props: {

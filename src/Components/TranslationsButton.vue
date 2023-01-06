@@ -113,7 +113,7 @@ export default {
           target: '_blank',
         });
       // Only show if user has permissions to edit languages
-      if( this.$permissions.languages.create )
+      if( this.$permissions.languages.create && this.language.showEditLanguage )
         items.push( {
           icon: 'cog',
           text: 'Edit language in panel',

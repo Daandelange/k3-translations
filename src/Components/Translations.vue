@@ -133,6 +133,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    showEditLanguage: { // Hides link to languages
+      type: Boolean,
+      default: true,
+    },
     translationStatuses: { // Holds current translation statuses
       type: Array,
       default: function(){return[];},
@@ -168,7 +172,7 @@ export default {
       return this.revertable;
     },
     compactModeEnabled() {
-      return this.compactmode;// || this.isPortaled;
+      return this.compactMode ?? false;// || this.isPortaled;
     },
     modelUrl(){
       let url = this.$view?.props?.model?.link;
@@ -216,6 +220,7 @@ export default {
           langs[i].isCurrent = (this.language.code === langs[i].code);
           langs[i].isDeleteable = this.canDelete && !langs[i].default && langs[i].isTranslated;
           langs[i].isRevertable = this.canRevert && !langs[i].default;
+          langs[i].showEditLanguage = this.$permissions.languages.create && this.showEditLanguage;
           langs[i].previewUrl = this.translationUrls[langs[i].code] ?? this.$view.props?.model?.previewUrl;// Note: 2nd doesn't work with multiple domains per translation
 
           // return early ?

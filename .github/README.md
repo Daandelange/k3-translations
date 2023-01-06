@@ -1,6 +1,6 @@
 # Kirby Translations
 
-Beta: This is a work in progress port of translations to Kirby 3. The "saved" state of a field is not yet enabled.
+Beta: This plugin started as a port of k2-translations to Kirby 3. Please note that the much loved "saved" state of a field is not yet implemented. For now, the plugin proveds revert and delete functions for translations, and replaces the native Kirby languages menu by a more advanced one, indicating the translation status of each language.
 
 ![License](https://img.shields.io/badge/License-MIT-green.svg) ![Kirby](https://img.shields.io/badge/Kirby-3.6+-f0c674.svg)
 
@@ -59,10 +59,11 @@ Within your website project, you can customise the language switching menu in th
 ```php
 // Site /site/config/config.php
 return [
-  'daandelange.translations.options.header.replaceKirbyLanguages': false, // To disable replacing the native lang menu. Default = true.
-  'daandelange.translations.options.header.compactMode': true, // To enable a more compact mode (alpha!). Default = false.
-  'daandelange.translations.options.header.deletable': false, // To disallow deleting a language. Default = true.
-  'daandelange.translations.options.header.revertable': false, // To disallow reverting a language. Default = true.
+  'daandelange.translations.header.replaceKirbyLanguages': false, // To disable replacing the native lang menu. Default = true.
+  'daandelange.translations.header.compactMode': true, // To enable a more compact mode. Default = false. (alpha! only fields/sections for now)
+  'daandelange.translations.header.deletable': false, // To disallow deleting a language. Default = true.
+  'daandelange.translations.header.revertable': false, // To disallow reverting a language. Default = true.
+  'daandelange.translations.header.showEditLanguage': false, // To hide the menu link to the panel language. Default = true.
 ];
 ```
 
@@ -72,6 +73,16 @@ Add the following `section` to your blueprint(s). (optional)
 
 ```yaml
 sections:
+  translations:
+    type: translations
+```
+
+### Translations Field
+
+Add the following `field` to your blueprint(s). (optional)
+
+```yaml
+fields:
   translations:
     type: translations
 ```
@@ -95,6 +106,10 @@ The following options are available for any translations section or field:
 - Set a custom label:  
   ```yaml
   label: Labelized! # default = [empty]
+  ```
+- Hide the "Edit language in panel" menu item:  
+  ```yaml
+  showEditLanguage: false # default = true
   ```
 
 

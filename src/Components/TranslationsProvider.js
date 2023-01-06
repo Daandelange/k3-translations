@@ -13,6 +13,7 @@ export default {
       isInHeader: false,
       showLoader: false,
       compactMode: false,
+      showEditLanguage: true,
       label: null,
       contentID: null,
     };
@@ -42,37 +43,58 @@ export default {
       });
     },
     onLoad(response){
-
-      if(response.options?.header?.replaceKirbyLanguages >= 0){
+      // Parse options
+      if( response.options?.header?.replaceKirbyLanguages >= 0 ){
         this.replaceKirbyLangs = response.options.header.replaceKirbyLanguages;
       }
-      if(response.translations){
+      if( response.options?.header?.deletable != null ){
+        this.deletable = response.options.header.deletable;
+      }
+      if( response.options?.header?.revertable != null ){
+        this.revertable = response.options.header.revertable;
+      }
+      if( response.options?.header?.compactMode != null ){
+        this.compactMode = response.options.header.compactMode;
+      }
+      if( response.options?.header?.showEditLanguage != null ){
+        this.showEditLanguage = response.options.header.showEditLanguage;
+      }
+
+      // Grab more data
+      if( response.translations != null ){
         this.translationStatuses = response.translations; // Not reactive with arrays/objects
         //this.$set(this, 'translationStatuses', response.translations); // Reactive ?
       }
-      if(response.deletable){ // Parses options from section / field response
-        this.deletable = response.deletable;
-      }
-      if(response.revertable){ // Parses options from section / field response
-        this.revertable = response.revertable;
-      }
-      if(response.compactMode){ // Parses options from section / field response
-        this.compactMode = response.compactMode;
-      }
-      if(response.label){ // Parses options from section / field response
-        this.label = response.label;
-      }
-      if(response.id){
+      if( response.id != null ){
         this.contentID = response.id;
       }
-      if(response.previewUrls ){
+      if( response.previewUrls != null ){
         this.translationUrls = response.previewUrls;
+      }
+
+      // Translation Section / Fields can be over-ridden by the blueprint prop
+      if( response.deletable != null ){ // Parses options from section / field response
+        this.deletable = response.deletable;
+      }
+      if( response.revertable != null ){ // Parses options from section / field response
+        this.revertable = response.revertable;
+      }
+      if( response.compactMode != null ){ // Parses options from section / field response
+        this.compactMode = response.compactMode;
+      }
+      if( response.label != null ){ // Parses options from section / field response
+        this.label = response.label;
+      }
+      if( response.showEditLanguage ){
+        this.showEditLanguage = response.showEditLanguage;
       }
     },
     // Load fallback, hopefully replaced by component
 //     load() {
 //       return this.$api.get(this.apiUrl);
 //     },
+
+    // A bit tricky helper for manually binding child props to parent data 
     getTranslationsProviderPropsBinding(){
       return {
         translationStatuses:  this.translationStatuses,
@@ -84,6 +106,7 @@ export default {
         revertable:           this.revertable,
         label:                this.label,
         translationUrls:      this.translationUrls,
+        showEditLanguage:     this.showEditLanguage,
       };
     },
   }

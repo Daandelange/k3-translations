@@ -17,6 +17,7 @@ App::plugin('daandelange/translations', [
             'compactMode' => true,
             'deletable' => true,
             'revertable' => true,
+            'showEditLanguage' => true,
         ],
     ],
     'sections' => [
@@ -33,7 +34,10 @@ App::plugin('daandelange/translations', [
                 },
                 'label' => function (?string $label = null) {
                     return $label;
-                }
+                },
+                'showEditLanguage' => function (bool $showEditLanguage = true ) { // Default = true for retro-compatibility
+                    return $showEditLanguage;
+                },
             ],
             'computed' => [
                 'id' => function () {
