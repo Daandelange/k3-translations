@@ -87,6 +87,15 @@ fields:
     type: translations
 ``` -->
 
+### Advanced usage
+- `$page->isTranslated(string|bool|array $langCode = false)`  
+  Returns if a page content translation is available.    
+  `$langCode` : 
+  - `false`: For the current language
+  - `true` : For all languages.
+  - `'fr'` : For a specific language.
+  - `['fr', 'en']` : For specific languages.
+
 ### Options
 
 The following options are available for any translations section or field:

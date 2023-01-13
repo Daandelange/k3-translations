@@ -20,6 +20,36 @@ App::plugin('daandelange/translations', [
             'showEditLanguage' => true,
         ],
     ],
+    'pageMethods' => [
+        // Provides a way to define if translated without loading the content (faster)
+        'isTranslated' => function(bool|array|string $langCode=false) : bool {
+            if( !kirby()->multilang() ) return false;
+
+            // Parse arguments to array
+            if( is_string($langCode)){
+                $langCode = [$langCode];
+            }
+            // True = Check if fully translated (all langs)
+            elseif( $langCode === true ){
+                $langCode = kirby()->languages()->pluck('code', null, true);
+            }
+            else {
+                // Default value = current language
+                $langCode = [ kirby()->language()->code() ];
+            }
+            if( count($langCode) == 0 ) return false;
+
+            // Check translations
+            $translated = true;
+            //$contentFiles = $this->contentFiles(); // Returns unexisting content too...
+            foreach($langCode as $lang){
+                $contentFile = $this->contentFile($lang); // Can throw if lang doesn't exist.
+                //if(!in_array($contentFile, $contentFiles)) $translated = false;
+                if( !file_exists($contentFile) ) $translated = false;
+            }
+            return $translated;
+        }
+    ],
     'sections' => [
         'translations' => [
             'props' => [
