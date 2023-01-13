@@ -1,8 +1,8 @@
 {
     "name": "daandelange/k3-translations",
-    "description": "Translations field and section for Kirby 3",
+    "description": "Translations menu replacement, field and section for Kirby 3",
     "homepage": "https://github.com/Daandelange/k3-translations",
-    "version": "0.2.4-beta",
+    "version": "0.2.5-beta",
     "type": "kirby-plugin",
     "license": "MIT",
     "authors": [
