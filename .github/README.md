@@ -59,11 +59,15 @@ Within your website project, you can customise the language switching menu in th
 ```php
 // Site /site/config/config.php
 return [
-  'daandelange.translations.header.replaceKirbyLanguages': false, // To disable replacing the native lang menu. Default = true.
-  'daandelange.translations.header.compactMode': true, // To enable a more compact mode. Default = false. (alpha! only fields/sections for now)
-  'daandelange.translations.header.deletable': false, // To disallow deleting a language. Default = true.
-  'daandelange.translations.header.revertable': false, // To disallow reverting a language. Default = true.
-  'daandelange.translations.header.showEditLanguage': false, // To hide the menu link to the panel language. Default = true.
+  'daandelange.translations' => [
+    'header' => [
+      'replaceKirbyLanguages' => false, // To disable replacing the native lang menu. Default = true.
+      'compactMode' => true, // To enable a more compact mode. Default = false. (alpha! only affects fields/sections)
+      'deletable' => false, // To disallow deleting a language. Default = true.
+      'revertable' => false, // To disallow reverting a language. Default = true.
+      'showEditLanguage' => false, // To hide the menu link to the panel language. Default = true.
+    ],
+  ],
 ];
 ```
 
