@@ -1,5 +1,8 @@
 # Kirby Translations
 
+**Warning :** Discontinued. While this plugin worked great for Kirby 3, it didn't make it to Kirby4. Kirby5 refactored the page header buttons, not needing all the complex k3 Vue hacks. Luckily, there's [junohamburg/kirby-language-selector](https://github.com/junohamburg/kirby-language-selector) which is a way cleaner solution for Kirby 5 !
+
+
 Beta: This plugin started as a port of k2-translations to Kirby 3. Please note that the much loved "saved" state of a field is not yet implemented. For now, the plugin provides revert and delete functions for translations, and replaces the native Kirby languages menu by a more advanced one, indicating the translation status of each language.
 
 ![License](https://img.shields.io/badge/License-MIT-green.svg) ![Kirby](https://img.shields.io/badge/Kirby-3.6+-f0c674.svg)
